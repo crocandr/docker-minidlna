@@ -14,6 +14,6 @@ then
   date > /etc/minidlna.configured
 fi
 
-minidlnad
+minidlnad -d
 
-/bin/bash
+#/bin/bash
