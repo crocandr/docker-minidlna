@@ -14,6 +14,9 @@ then
   date > /etc/minidlna.configured
 fi
 
+# remove stucked pid file
+rm -f /run/minidlna/minidlna.pid
+# start minidlna
 minidlnad -d
 
 #/bin/bash
