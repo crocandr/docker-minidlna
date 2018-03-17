@@ -5,8 +5,11 @@ services:
     image: croc/minidlna
     environment:
       - SRVNAME=docker-minidlna
-      - FOLDERS=/mnt/data/mp3,/mnt/data/movie,/mnt/data/tv
+      - FOLDERS=/media/mp3,/media/movie,/media/tv_series
     volumes:
-      - '/mnt/data/pub:/mnt/data'
+      - '/mnt/data/pub/movies:/media/movies'
+      - '/mnt/data/pub/tv_series:/media/tv_series'
+      - '/mnt/data/pub/mp3:/media/mp3'
+#     - '/mnt/data/pub:/media/'
     network_mode: 'host'
     restart: always
