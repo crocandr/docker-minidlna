@@ -11,8 +11,8 @@ then
     echo "media_dir=$folder" >> /etc/minidlna.conf
   done
 
-  [ -z $PORT ] && { PORT=8200; }
-  sed -i "s@port.*00@port $PORT@g" /etc/minidlna.conf 
+  [ -z $PORT ] && { PORT=8201; }
+  sed -i "s@port=.*00@port=$PORT@g" /etc/minidlna.conf 
 
   date > /etc/minidlna.configured
 fi
