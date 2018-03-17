@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  minidlna:
+    image: croc/minidlna
+    environment:
+      - SRVNAME=docker-minidlna
+      - FOLDERS=/mnt/data/mp3,/mnt/data/movie,/mnt/data/tv
+    volumes:
+      - '/mnt/data/pub:/mnt/data'
+    network_mode: 'host'
+    restart: always
