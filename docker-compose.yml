@@ -5,12 +5,12 @@ services:
     image: croc/minidlna
     environment:
       - SRVNAME=docker-minidlna
-      - PORT=8200
+      - PORT=8205
       - FOLDERS=/media/mp3,/media/movie,/media/tv_series
-#    volumes:
-#      - '/mnt/data/pub/movies:/media/movies'
-#      - '/mnt/data/pub/tv_series:/media/tv_series'
-#      - '/mnt/data/pub/mp3:/media/mp3'
+    volumes:
+      - '/mnt/data/pub/movies:/media/movies'
+      - '/mnt/data/pub/tv_series:/media/tv_series'
+      - '/mnt/data/pub/mp3:/media/mp3'
 #     - '/mnt/data/pub:/media/'
     network_mode: 'host'
     restart: always
