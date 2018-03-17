@@ -18,3 +18,6 @@ docker run -tid --name=minidlna --net=host -e SRVNAME=dockerlna -e "FOLDERS=/mnt
   - `SRVNAME` - name of the minidlna
   - `FOLDERS` - list of the shared folders in your volume (/mnt/data)
 
+Please use docker-compose file (from my Github page) for easier management. 
+
+
