@@ -6,11 +6,10 @@ services:
     environment:
       - SRVNAME=docker-minidlna
       - PORT=8205
-      - FOLDERS=/media/mp3,/media/movie,/media/tv_series
+      - FOLDERS=/media/mp3,/media/movies,/media/tv_series
     volumes:
       - '/mnt/data/pub/movies:/media/movies'
       - '/mnt/data/pub/tv_series:/media/tv_series'
       - '/mnt/data/pub/mp3:/media/mp3'
-#     - '/mnt/data/pub:/media/'
     network_mode: 'host'
     restart: always
