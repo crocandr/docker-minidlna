@@ -6,6 +6,8 @@ services:
     environment:
       - SRVNAME=docker-minidlna
       - PORT=8205
+      # specify an UPNP interface if you have multiple network interface
+      #- SSDP_IFACE=eth0
       - FOLDERS=/media/mp3,/media/movies,/media/tv_series
     volumes:
       - '/mnt/data/pub/movies:/media/movies'
