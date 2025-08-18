@@ -2,6 +2,8 @@
 
 if [ ! -e /etc/minidlna.configured ]
 then
+  echo "Configuring minidlna ..."
+
   # set friendly name
   sed -i "s@.*friendly_name=.*@friendly_name=$SRVNAME@g" /etc/minidlna.conf
   # set port
@@ -11,12 +13,18 @@ then
   # remove media folders
   sed -i s@media_dir=@\#media_dir=@g /etc/minidlna.conf
   # add media folders to the end of file
-  for folder in $( echo $FOLDERS | xargs -d',' )
+  for folder in $( echo $FOLDERS | xargs -d';' )
   do
     echo "media_dir=$folder" >> /etc/minidlna.conf
   done
 
+  # inotify config
+  sed -i s@.*inotify=.*@inotify=yes@g /etc/minidlna.conf
+
+  # create configured flag file
   date > /etc/minidlna.configured
+else
+  echo "Using already exists config (/etc/minidlna.conf), starting minidlna ..."
 fi
 
 # minissdp

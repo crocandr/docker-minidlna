@@ -8,10 +8,19 @@ services:
       - PORT=8205
       # specify an UPNP interface if you have multiple network interface
       #- SSDP_IFACE=eth0
-      - FOLDERS=/media/mp3,/media/movies,/media/tv_series
+      - FOLDERS=/media/mp3;/media/movies;/media/tv_series
+      # with types
+      #- FOLDERS=A,/media/mp3;P,/media/pictures;V,/media/movies;V,/media/tv_series
     volumes:
-      - '/mnt/data/pub/movies:/media/movies'
-      - '/mnt/data/pub/tv_series:/media/tv_series'
-      - '/mnt/data/pub/mp3:/media/mp3'
+      - '/mnt/data/movies:/media/movies'
+      - '/mnt/data/series:/media/tv_series'
+      - '/mnt/data/mp3:/media/mp3'
+      # with config file
+      # uncomment or delete the full environment block if You use custom config file!
+      # - './config/minidlna.conf:/etc/minidlna.conf:ro'
+      # db dir
+      # - './cache:/var/cache/minidlna'
+    # network mode setup 
     network_mode: 'host'
-    restart: always
+    # restart mode
+    restart: unless-stopped

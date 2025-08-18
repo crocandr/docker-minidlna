@@ -11,8 +11,13 @@ docker build -t croc/minidlna .
 
 ## Run
 
+The recommended method is to use with docker-compose file.
+Check the example file in the repository.
+
+### with environment parameters
+
 ```
-docker run -tid --name=minidlna --net=host -e SRVNAME=dockerlna -e "FOLDERS=/mnt/data/mp3,/mnt/data/movie,/mnt/data/torrent" -v /mnt/data/pub/:/mnt/data croc/minidlna
+docker run -tid --name=minidlna --net=host -e SRVNAME=dockerlna -e "FOLDERS=/mnt/data/mp3;/mnt/data/movie;/mnt/data/torrent" -v /mnt/data/pub/:/mnt/data croc/minidlna
 ```
 
   - `SRVNAME` - name of the minidlna server
@@ -20,6 +25,11 @@ docker run -tid --name=minidlna --net=host -e SRVNAME=dockerlna -e "FOLDERS=/mnt
 
 Please use docker-compose file (from my Github page) for easier management. 
 
+### with config file
+
+1. use and edit config template file `config/minidlna.conf.tmpl`
+2. save as `config/minidlna.conf`
+3. run minidlna with docker-compose file without any environment variables, the volumes only: `docker-compose up -d`
 
 ## Known errors
 
