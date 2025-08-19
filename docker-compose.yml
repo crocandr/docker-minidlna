@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   minidlna:
     image: croc/minidlna
