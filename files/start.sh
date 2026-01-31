@@ -41,7 +41,7 @@ then
 fi
 if [ $( ss -lntpu | grep -i 1900 | wc -l ) -gt 0 ]
 then
-  echo "WARNING: another UPNP service use same UDP port!"
+  echo "ERROR: another UPNP service use same 1900/UDP port!"
   echo "  Please stop another server and try again."
 fi
 minissdpd -i $SSDP_IFACE || { echo "SSDP service start problem"; exit 1; }
