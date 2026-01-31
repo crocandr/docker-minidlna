@@ -1,4 +1,4 @@
-FROM debian:12
+FROM debian:latest
 
 RUN apt-get update && \
     apt-get install -y minidlna minissdpd net-tools iproute2
