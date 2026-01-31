@@ -8,7 +8,7 @@ then
   sed -i "s@.*friendly_name=.*@friendly_name=$SRVNAME@g" /etc/minidlna.conf
   # set port
   [ -z $PORT ] && { PORT=8201; }
-  sed -i "s@port=.*00@port=$PORT@g" /etc/minidlna.conf
+  sed -i "s@^port=.*@port=$PORT@g" /etc/minidlna.conf
 
   # remove media folders
   sed -i s@media_dir=@\#media_dir=@g /etc/minidlna.conf
